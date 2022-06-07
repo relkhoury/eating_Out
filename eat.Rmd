@@ -37,9 +37,17 @@ barchartGC(~race + eatout,data=mydata)
 barchartGC(~race + eatout,data=mydata, type="percent")
 
 ```
-According to the percentage bar plot, the percentages of "Black" and "Other" people who chose to eat out were relatively similar; the proportion of white people who ate out was slightly higher (around 81%) compared to the other two categories.  But, white people had the highest frequency among persons who chose NOT to eat out; this is likely because the number of white people in the sample size is so high.   
+
+According to the percentage bar plot, the percentages of "Black" and "Other" people who chose to eat out were relatively similar; the proportion of white people who ate out was slightly higher (around 81%) compared to the other two categories.  But, white people had the highest frequency among persons who chose NOT to eat out; this is likely because the number of white people in the sample size is so high.  
 
 
+```{r}
+table1 <- xtabs(~race + eatout, data=mydata)
+rowPerc(table1)
+colPerc(table1)
+```
+ 
+Examining the first table, it's clear that the highset proportion of people who said yes in their category were "White", with 83.13%.  "Black" and "Other" people had similar proportions of "yes" and "no".  The second table considers the sources of the total "yes" and "no" responses, again showing that the majority of the former came from "White" people (81.69%).  Because the sample size of "White" group was so large, they held the majority of "no" responses in this table, as well.  
 
 
 
