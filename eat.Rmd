@@ -64,8 +64,8 @@ fisherXY(mydata$race,mydata$eatout, printAll = TRUE)
 
 Running the FisherExact test allows us to identify where exactly true difference exists among a sample set of data.  Conducting this test yields tangible proof that there's a difference among the "White" groups and the "Black"/"Other" groups.  Between the "White"/"Black" groups and "White"/"Others" groups, the p-values were .00001242 and .00717, respectively.  Because these values are low, the null hypothesis can be rejected, corroborating the difference between the aforementioned groups.  Among the "Black" and "Other" groups, the p-value was .6914.  Since this value is quite high, it's safe to assume these groups aren't varied statisically.  
 
-
-
+### Summary, Conclusion
+When considering the Bar Charts, Numerical Tables, and Chi-Square/FisherExact tests, there is convincing evidence that there is a statistical difference between at least two races.  The p-values from the Chi-square tests proved that there was some general difference among the data, and the FisherExact test underpinned the inherent difference between "White" people and "Black"/"Other" people.
 
 
 
