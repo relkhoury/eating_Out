@@ -31,7 +31,7 @@ GSS <- droplevels(GSS)
 mydata <- select(GSS,race,age,eatout)
 mydata <- na.omit(mydata)
 ```
-
+### Graphical Test
 ```{r}
 barchartGC(~race + eatout,data=mydata)
 barchartGC(~race + eatout,data=mydata, type="percent")
@@ -40,7 +40,7 @@ barchartGC(~race + eatout,data=mydata, type="percent")
 
 According to the percentage bar plot, the percentages of "Black" and "Other" people who chose to eat out were relatively similar; the proportion of white people who ate out was slightly higher (around 81%) compared to the other two categories.  But, white people had the highest frequency among persons who chose NOT to eat out; this is likely because the number of white people in the sample size is so high.  
 
-
+### Numerical Test
 ```{r}
 table1 <- xtabs(~race + eatout, data=mydata)
 rowPerc(table1)
@@ -50,13 +50,22 @@ colPerc(table1)
 Examining the first table, it's clear that the highset proportion of people who said yes in their category were "White", with 83.13%.  "Black" and "Other" people had similar proportions of "yes" and "no".  The second table considers the sources of the total "yes" and "no" responses, again showing that the majority of the former came from "White" people (81.69%).  Because the sample size of "White" group was so large, they held the majority of "no" responses in this table, as well.  
 
 
-
+### Inferential Tests
 ```{r}
 chisq.test(table1)
 chisqtestGC(table1)
 ```
 
 After running the Chi-squared test, it's apparent that the p-value is lesser than .05; based on this statistic, we can reject the null hypothesis.  Better understanding which group contributes most to the variance in data requires a FisherXY test.
+
+```{r}
+fisherXY(mydata$race,mydata$eatout, printAll = TRUE)
+```
+
+Running the FisherExact test allows us to identify where exactly true difference exists among a sample set of data.  Conducting this test yields tangible proof that there's a difference among the "White" groups and the "Black"/"Other" groups.  Between the "White"/"Black" groups and "White"/"Others" groups, the p-values were .00001242 and .00717, respectively.  Because these values are low, the null hypothesis can be rejected, corroborating the difference between the aforementioned groups.  Among the "Black" and "Other" groups, the p-value was .6914.  Since this value is quite high, it's safe to assume these groups aren't varied statisically.  
+
+
+
 
 
 
