@@ -1,6 +1,6 @@
 ---
 title: "Eating Out"
-author: "your name here"
+author: "Rabi Elkhoury"
 output: 
   html_document:
     number_sections: true
@@ -32,8 +32,12 @@ mydata <- select(GSS,race,age,eatout)
 mydata <- na.omit(mydata)
 ```
 
+```{r}
+barchartGC(~race + eatout,data=mydata)
+barchartGC(~race + eatout,data=mydata, type="percent")
 
-
+```
+According to the percentage bar plot, the percentages of "Black" and "Other" people who chose to eat out were relatively similar; the proportion of white people who ate out was slightly higher (around 81%) compared to the other two categories.  But, white people had the highest frequency among persons who chose NOT to eat out; this is likely because the number of white people in the sample size is so high.   
 
 
 
