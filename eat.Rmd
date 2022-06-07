@@ -51,3 +51,12 @@ Examining the first table, it's clear that the highset proportion of people who 
 
 
 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+```
+
+After running the Chi-squared test, it's apparent that the p-value is lesser than .05; based on this statistic, we can reject the null hypothesis.  Better understanding which group contributes most to the variance in data requires a FisherXY test.
+
+
+
